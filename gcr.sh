@@ -22,7 +22,7 @@ docker login -u ${DOCKER_USER} -p ${DOCKER_PASS}
 cp jenkins-x-platform/values.yaml ./
 
 
-cat jenkins-x-platform/values.yaml | grep gcr.io | grep -oE "\w+\..*:\d+.*$" | sort | uniq | while read repo; do
+cat jenkins-x-platform/values.yaml | grep gcr.io |  grep -o  "\w*\..*:.*$" | sort | uniq | while read repo; do
     docker pull $repo
     target="${DOCKER_USER}/${repo##*/}"
     echo "tag $repo to $target"

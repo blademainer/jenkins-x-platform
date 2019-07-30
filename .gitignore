@@ -41,3 +41,4 @@ Session.vim
 *.lock
 
 .updatebot-repos/
+*.tmp
